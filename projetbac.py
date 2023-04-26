@@ -336,156 +336,156 @@ def main(mur, item1, item2, item3, item4, item5, item6, item7, item8, item9, ite
                     mur_droit(csr, item7, item11)
                     mur = 'drt'
                 pygame.display.flip()
-        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 :
-            if event.pos[0]>750 and event.pos[1]>450 and event.pos[0]<950 and event.pos[1]<600 and mur == 'arr' and item1==False:
-                if fenetre('ouvrir ?', 'coffre', 'oui', 'non', 'obtenu: papier froissé', 'ok')== 'yes' :
-                    item1=True
-                    son_coffre=pygame.mixer.Sound(b'coffre.wav')
-                    son_coffre.play()
-                    mur_arrière(lim, barraux, item1)
-            if event.pos[0]>1100 and event.pos[1]>425 and event.pos[0]<1325 and event.pos[1]<725 and mur == 'arr':
-                if fenetre('une lime est plantée dans ce tonneau\n la prendre?', 'tonneau', 'oui', 'non', 'obtenu: lime', 'ok')== 'yes':
-                    item4=True
-                    son_lime=pygame.mixer.Sound(b'lime.wav')
-                    son_lime.play()
-                    lim = False
-                    mur_arrière(lim, barraux, item1)
-            if event.pos[0]>300 and event.pos[1]>150 and event.pos[0]<420 and event.pos[1]<270 and mur == 'arr':
-                if item4 and barraux != 'sciés':
-                    if fenetre('des barraux sont attachés à cette fenêtre \n cela tombe bien, vous possedez une lime \n les scier ?', 'fenêtre', 'oui', 'non', 'vous pouvez maitenant passer votre tête par la fenêtre', 'ok')== 'yes' :
-                        barraux='sciés'
-                        son_limer=pygame.mixer.Sound(b'limer.wav')
-                        son_limer.play()
-                elif barraux=='non': fenetre('des barraux sont attachés à cette fenêtre ', 'fenêtre', '', '', '', '')
-            if event.pos[0]>300 and event.pos[1]>150 and event.pos[0]<420 and event.pos[1]<270 and mur == 'arr' and barraux=='sciés':
-                vue_exterieur(item3)
-                mur='ext'
-            if event.pos[0]>1150 and event.pos[1]>208 and event.pos[0]<1330 and event.pos[1]<388 and mur == 'ext':
-                if item8:
-                    if fenetre('un aimant est acroché au mur\n le prendre?', 'aimant', 'oui', 'non', 'obtenu: aimant', 'ok')== 'yes':
-                        item3=True
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 :
+                if event.pos[0]>750 and event.pos[1]>450 and event.pos[0]<950 and event.pos[1]<600 and mur == 'arr' and item1==False:
+                    if fenetre('ouvrir ?', 'coffre', 'oui', 'non', 'obtenu: papier froissé', 'ok')== 'yes' :
+                        item1=True
+                        son_coffre=pygame.mixer.Sound(b'coffre.wav')
+                        son_coffre.play()
+                        mur_arrière(lim, barraux, item1)
+                if event.pos[0]>1100 and event.pos[1]>425 and event.pos[0]<1325 and event.pos[1]<725 and mur == 'arr':
+                    if fenetre('une lime est plantée dans ce tonneau\n la prendre?', 'tonneau', 'oui', 'non', 'obtenu: lime', 'ok')== 'yes':
+                        item4=True
+                        son_lime=pygame.mixer.Sound(b'lime.wav')
+                        son_lime.play()
+                        lim = False
+                        mur_arrière(lim, barraux, item1)
+                if event.pos[0]>300 and event.pos[1]>150 and event.pos[0]<420 and event.pos[1]<270 and mur == 'arr':
+                    if item4 and barraux != 'sciés':
+                        if fenetre('des barraux sont attachés à cette fenêtre \n cela tombe bien, vous possedez une lime \n les scier ?', 'fenêtre', 'oui', 'non', 'vous pouvez maitenant passer votre tête par la fenêtre', 'ok')== 'yes' :
+                            barraux='sciés'
+                            son_limer=pygame.mixer.Sound(b'limer.wav')
+                            son_limer.play()
+                    elif barraux=='non': fenetre('des barraux sont attachés à cette fenêtre ', 'fenêtre', '', '', '', '')
+                if event.pos[0]>300 and event.pos[1]>150 and event.pos[0]<420 and event.pos[1]<270 and mur == 'arr' and barraux=='sciés':
+                    vue_exterieur(item3)
+                    mur='ext'
+                if event.pos[0]>1150 and event.pos[1]>208 and event.pos[0]<1330 and event.pos[1]<388 and mur == 'ext':
+                    if item8:
+                        if fenetre('un aimant est acroché au mur\n le prendre?', 'aimant', 'oui', 'non', 'obtenu: aimant', 'ok')== 'yes':
+                            item3=True
+                            son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
+                            son_objet.play()
+                        vue_exterieur(item3)
+                    else: fenetre("un aimant est acroché au mur\n mais il est trop loin \n vous ne pouvez pas l'atraper", 'aimant', '', '', '', '')
+                if event.pos[0]>945 and event.pos[1]>440 and event.pos[0]<945+65 and event.pos[1]<440+150 and mur == 'drt' and csr==False and item7==False:
+                    if fenetre("un mareau est dans ce casier\n le prendre?", 'mareau', 'oui', 'non', 'obtenu: marteau', 'ok')== 'yes':
+                        item7=True
                         son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
                         son_objet.play()
-                    vue_exterieur(item3)
-                else: fenetre("un aimant est acroché au mur\n mais il est trop loin \n vous ne pouvez pas l'atraper", 'aimant', '', '', '', '')
-            if event.pos[0]>945 and event.pos[1]>440 and event.pos[0]<945+65 and event.pos[1]<440+150 and mur == 'drt' and csr==False and item7==False:
-                if fenetre("un mareau est dans ce casier\n le prendre?", 'mareau', 'oui', 'non', 'obtenu: marteau', 'ok')== 'yes':
-                    item7=True
-                    son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
-                    son_objet.play()
-                    mur_droit(csr, item7, item11)
-            if event.pos[0]>825 and event.pos[1]>30 and event.pos[0]<450+825 and event.pos[1]<600+30 and mur == 'drt' and csr:
-                if code:
-                    if fenetre("ce casier est fermé\n l'ouvrir?", 'casier', '6174', 'code', 'le casier est ouvert', 'code mauvais')== '6174':
-                        csr=False
-                        son_casier=pygame.mixer.Sound(b'casier.wav')
-                        son_casier.play()
                         mur_droit(csr, item7, item11)
-                else: fenetre("ce casier est fermé\n Il nessecite un code", 'casier', '', '', '', '')
-            if event.pos[0]>100 and event.pos[1]>300 and event.pos[0]<100+600 and event.pos[1]<300+400 and mur == 'gch' and not item10:
-                if fenetre("ce burreau possede des tirroirs\n les fouiller?", 'bureau', 'oui', 'non', "dans l'un des tirroir, vous trouvez une clé", 'ok')== 'yes':
-                    item10=True
-                    son_tirroire=pygame.mixer.Sound(b'tirroire.wav')
-                    son_tirroire.play()
-                    son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
-                    son_objet.play()                   
-                    mur_gauche(fxmur, item8, item10)
-            if event.pos[0]>100 and event.pos[1]>300 and event.pos[0]<100+600 and event.pos[1]<300+400 and mur == 'drt' and not item11:
-                if item10:
-                    if fenetre("cette commode possede des tirroirs\n les fouiller?", 'commode', 'oui', 'non', "vous trouvez un bout de papier avec plein de chiffres dessus", 'ok')== 'yes':
-                        item11=True
+                if event.pos[0]>825 and event.pos[1]>30 and event.pos[0]<450+825 and event.pos[1]<600+30 and mur == 'drt' and csr:
+                    if code:
+                        if fenetre("ce casier est fermé\n l'ouvrir?", 'casier', '6174', 'code', 'le casier est ouvert', 'code mauvais')== '6174':
+                            csr=False
+                            son_casier=pygame.mixer.Sound(b'casier.wav')
+                            son_casier.play()
+                            mur_droit(csr, item7, item11)
+                    else: fenetre("ce casier est fermé\n Il nessecite un code", 'casier', '', '', '', '')
+                if event.pos[0]>100 and event.pos[1]>300 and event.pos[0]<100+600 and event.pos[1]<300+400 and mur == 'gch' and not item10:
+                    if fenetre("ce burreau possede des tirroirs\n les fouiller?", 'bureau', 'oui', 'non', "dans l'un des tirroir, vous trouvez une clé", 'ok')== 'yes':
+                        item10=True
                         son_tirroire=pygame.mixer.Sound(b'tirroire.wav')
                         son_tirroire.play()
-                        mur_droit(csr, item7, item11)
-                    else:fenetre("cette commode possede des tirroirs\n mais ils nessecitent une clé pour les ouvrirs", 'commode', '', '', "", '')
-            if event.pos[0]>781 and event.pos[1]>190 and event.pos[0]<781+90 and event.pos[1]<190+210 and mur == 'gch' and fxmur==False and item8==False:
-                if fenetre("il y a une pince dans le trou\n la prendre ?", 'pince', 'oui', 'non', 'obtenu: pince', 'ok')== 'yes':
-                    item8=True
-                    son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
-                    son_objet.play()
-                    mur_gauche(fxmur, item8, item10)
-            if event.pos[0]>781 and event.pos[1]>190 and event.pos[0]<781+90 and event.pos[1]<190+210 and mur == 'gch' and item7 and fxmur:
-                if fenetre("il semble que cette partie du mur ressorte \n le casser avec le marteau?", 'faux mur', 'oui', 'non', 'faux mur cassé', 'ok')== 'yes':
-                    fxmur=False
-                    son_detruit=pygame.mixer.Sound(b'detruit.wav')
-                    son_detruit.play()
-                    mur_gauche(fxmur, item8, item10)
-            if event.pos[0]>1050 and event.pos[1]>165 and event.pos[0]<1050+80 and event.pos[1]<165+110 and mur == 'avt' and item3:
-                if fenetre("il semble qu'une boîte de biscuits pour chien métalique soie posée sur le bureau du gardien\n utiliser l'aimant pour l'atraper", 'biscuits', 'oui', 'non', 'obtenu: boîte de biscuits pour chien', 'ok')== 'yes':
-                    item9=True
-                    son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
-                    son_objet.play()
-                    biscits=False
-                    mur_avant(cht, biscits, door)
-            if event.pos[0]>800 and event.pos[1]>150 and event.pos[0]<1125 and event.pos[1]<800 and mur == 'avt' and item5 and door:
-                if fenetre("Vous avez les clés de la porte.\nL'ouvrir?", 'porte', 'oui', 'non', 'la porte est maitenant ouverte', 'ok')== 'yes':
-                    door=False
-                    son_porte=pygame.mixer.Sound(b'porte_cellule.wav')
-                    son_porte.play()
-                    mur_avant(cht, biscits, door)
-            if event.pos[0]>-100 and event.pos[1]>300 and event.pos[0]<-100+800 and event.pos[1]<300+450 and mur == 'avt' and item9:
-                if fenetre("le chien semble avoir des clés attaché à son colié\n lui donner les buscuit?", 'chien', 'oui', 'non', 'obtenu: clés de la cellule', 'ok')== 'yes':
-                    item5=True
-                    cht=False
-                    item9=False
-                    son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
-                    son_objet.play()
-                    son_chien=pygame.mixer.Sound(b'chien.wav')
-                    son_chien.play()
-                    mur_avant(cht, biscits, door)
-            if event.pos[0]>15 and event.pos[1]>685 and event.pos[0]<85 and event.pos[1]<755 and item1:
-                son_papier=pygame.mixer.Sound(b'papier.wav')
-                son_papier.play()
-                fenetre("c'est un vieux papier\n il a l'air d'être là depuis longtemps \n le lire?", 'papier froissé', 'oui', 'non', "Vous lisez le papier:\na tous le monde qui passe après moi, sachez que j'écris avant de devenir fou, j'ai caché un aimant dehors hors de porté bonne chance si vous l'atrapez hahahah!", 'ok')
-            if event.pos[0]>15+10*90 and event.pos[1]>685 and event.pos[0]<85+10*90 and event.pos[1]<755 and item11:
-                son_papier=pygame.mixer.Sound(b'papier.wav')
-                son_papier.play()
-                fenetre("ce papier est remplis de chiffres dont certains sont entourés\n vous les mettez bout-à-bout et cela forme un code 6174", 'papier plein de chiffres', '', '', "", '')
-                code=True
-            if event.pos[0]>500 and event.pos[1]>250 and event.pos[0]<500+1000 and event.pos[1]<250+200 and not door and mur=='avt' and not item12:
-                if fenetre("Ce burreau est celui du gardien\nL'ouvrir?", 'burreau', 'oui', 'non', 'obtenu: clé rouillé', 'ok')== 'yes':
-                    son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
-                    son_objet.play()
-                    son_tirroire=pygame.mixer.Sound(b'tirroire.wav')
-                    son_tirroire.play()
-                    item12=True
-            if event.pos[0]>175 and event.pos[1]>75 and event.pos[0]<175*2 and event.pos[1]<75+350 and not door and mur=='avt' and item12:
-                if fenetre("ceci est la porte de sortie\nL'ouvrir?", 'porte de sortie', 'oui', 'non', 'Félicitation vous vous êtes échapés', 'ok')== 'yes':
-                    ecran.fill(noir)
-                    ecran.blit(win,(0,0))
-                    pygame.display.flip()
-                    time.sleep(5)
-                    done=True
+                        son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
+                        son_objet.play()                   
+                        mur_gauche(fxmur, item8, item10)
+                if event.pos[0]>100 and event.pos[1]>300 and event.pos[0]<100+600 and event.pos[1]<300+400 and mur == 'drt' and not item11:
+                    if item10:
+                        if fenetre("cette commode possede des tirroirs\n les fouiller?", 'commode', 'oui', 'non', "vous trouvez un bout de papier avec plein de chiffres dessus", 'ok')== 'yes':
+                            item11=True
+                            son_tirroire=pygame.mixer.Sound(b'tirroire.wav')
+                            son_tirroire.play()
+                            mur_droit(csr, item7, item11)
+                        else:fenetre("cette commode possede des tirroirs\n mais ils nessecitent une clé pour les ouvrirs", 'commode', '', '', "", '')
+                if event.pos[0]>781 and event.pos[1]>190 and event.pos[0]<781+90 and event.pos[1]<190+210 and mur == 'gch' and fxmur==False and item8==False:
+                    if fenetre("il y a une pince dans le trou\n la prendre ?", 'pince', 'oui', 'non', 'obtenu: pince', 'ok')== 'yes':
+                        item8=True
+                        son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
+                        son_objet.play()
+                        mur_gauche(fxmur, item8, item10)
+                if event.pos[0]>781 and event.pos[1]>190 and event.pos[0]<781+90 and event.pos[1]<190+210 and mur == 'gch' and item7 and fxmur:
+                    if fenetre("il semble que cette partie du mur ressorte \n le casser avec le marteau?", 'faux mur', 'oui', 'non', 'faux mur cassé', 'ok')== 'yes':
+                        fxmur=False
+                        son_detruit=pygame.mixer.Sound(b'detruit.wav')
+                        son_detruit.play()
+                        mur_gauche(fxmur, item8, item10)
+                if event.pos[0]>1050 and event.pos[1]>165 and event.pos[0]<1050+80 and event.pos[1]<165+110 and mur == 'avt' and item3:
+                    if fenetre("il semble qu'une boîte de biscuits pour chien métalique soie posée sur le bureau du gardien\n utiliser l'aimant pour l'atraper", 'biscuits', 'oui', 'non', 'obtenu: boîte de biscuits pour chien', 'ok')== 'yes':
+                        item9=True
+                        son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
+                        son_objet.play()
+                        biscits=False
+                        mur_avant(cht, biscits, door)
+                if event.pos[0]>800 and event.pos[1]>150 and event.pos[0]<1125 and event.pos[1]<800 and mur == 'avt' and item5 and door:
+                    if fenetre("Vous avez les clés de la porte.\nL'ouvrir?", 'porte', 'oui', 'non', 'la porte est maitenant ouverte', 'ok')== 'yes':
+                        door=False
+                        son_porte=pygame.mixer.Sound(b'porte_cellule.wav')
+                        son_porte.play()
+                        mur_avant(cht, biscits, door)
+                if event.pos[0]>-100 and event.pos[1]>300 and event.pos[0]<-100+800 and event.pos[1]<300+450 and mur == 'avt' and item9:
+                    if fenetre("le chien semble avoir des clés attaché à son colié\n lui donner les buscuit?", 'chien', 'oui', 'non', 'obtenu: clés de la cellule', 'ok')== 'yes':
+                        item5=True
+                        cht=False
+                        item9=False
+                        son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
+                        son_objet.play()
+                        son_chien=pygame.mixer.Sound(b'chien.wav')
+                        son_chien.play()
+                        mur_avant(cht, biscits, door)
+                if event.pos[0]>15 and event.pos[1]>685 and event.pos[0]<85 and event.pos[1]<755 and item1:
+                    son_papier=pygame.mixer.Sound(b'papier.wav')
+                    son_papier.play()
+                    fenetre("c'est un vieux papier\n il a l'air d'être là depuis longtemps \n le lire?", 'papier froissé', 'oui', 'non', "Vous lisez le papier:\na tous le monde qui passe après moi, sachez que j'écris avant de devenir fou, j'ai caché un aimant dehors hors de porté bonne chance si vous l'atrapez hahahah!", 'ok')
+                if event.pos[0]>15+10*90 and event.pos[1]>685 and event.pos[0]<85+10*90 and event.pos[1]<755 and item11:
+                    son_papier=pygame.mixer.Sound(b'papier.wav')
+                    son_papier.play()
+                    fenetre("ce papier est remplis de chiffres dont certains sont entourés\n vous les mettez bout-à-bout et cela forme un code 6174", 'papier plein de chiffres', '', '', "", '')
+                    code=True
+                if event.pos[0]>500 and event.pos[1]>250 and event.pos[0]<500+1000 and event.pos[1]<250+200 and not door and mur=='avt' and not item12:
+                    if fenetre("Ce burreau est celui du gardien\nL'ouvrir?", 'burreau', 'oui', 'non', 'obtenu: clé rouillé', 'ok')== 'yes':
+                        son_objet=pygame.mixer.Sound(b'prendre_objet.wav')
+                        son_objet.play()
+                        son_tirroire=pygame.mixer.Sound(b'tirroire.wav')
+                        son_tirroire.play()
+                        item12=True
+                if event.pos[0]>175 and event.pos[1]>75 and event.pos[0]<175*2 and event.pos[1]<75+350 and not door and mur=='avt' and item12:
+                    if fenetre("ceci est la porte de sortie\nL'ouvrir?", 'porte de sortie', 'oui', 'non', 'Félicitation vous vous êtes échapés', 'ok')== 'yes':
+                        ecran.fill(noir)
+                        ecran.blit(win,(0,0))
+                        pygame.display.flip()
+                        time.sleep(5)
+                        done=True
         ecran.blit(inventaire,(0,665))
         j=15
         for i in range(0,15):
-                    ecran.blit(item_slot,(j,685))
-                    if j==15 and item1 :
-                        ecran.blit(enigme1,(j,685))
-                    if j==105 and item2:
-                        ecran.blit(enigme2,(j,685))
-                    if j==195 and item3:
-                        ecran.blit(aimant,(j,685))
-                    if j==285 and item4:
-                        ecran.blit(lime,(j,685))
-                        lim = False
-                    if j==375 and item5:
-                        ecran.blit(cle,(j,685))
-                    if j==465 and item6:
-                        ecran.blit(barreau2,(j,685))
-                    if j==465+90 and item7:
-                        ecran.blit(marteau2,(j,685))
-                    if j==465+(2*90) and item8:
-                        ecran.blit(pince2, (j,685))
-                    if j==465+(3*90) and item9:
-                        ecran.blit(biscuits2,(j,685))
-                    if j==465+(4*90) and item10:
-                        ecran.blit(clé2,(j,685))
-                    if j==465+5*90 and item11:
-                        ecran.blit(enigme1,(j,685))
-                    if j==465+6*90 and item12:
-                        ecran.blit(cle3,(j,685))
-                    j += 90
+            ecran.blit(item_slot,(j,685))
+            if j==15 and item1 :
+                ecran.blit(enigme1,(j,685))
+            if j==105 and item2:
+                ecran.blit(enigme2,(j,685))
+            if j==195 and item3:
+                ecran.blit(aimant,(j,685))
+            if j==285 and item4:
+                ecran.blit(lime,(j,685))
+                lim = False
+            if j==375 and item5:
+                ecran.blit(cle,(j,685))
+            if j==465 and item6:
+                ecran.blit(barreau2,(j,685))
+            if j==465+90 and item7:
+                ecran.blit(marteau2,(j,685))
+            if j==465+(2*90) and item8:
+                ecran.blit(pince2, (j,685))
+            if j==465+(3*90) and item9:
+                ecran.blit(biscuits2,(j,685))
+            if j==465+(4*90) and item10:
+                ecran.blit(clé2,(j,685))
+            if j==465+5*90 and item11:
+                ecran.blit(enigme1,(j,685))
+            if j==465+6*90 and item12:
+                ecran.blit(cle3,(j,685))
+            j += 90
         pygame.display.flip()
     print('fin')
     pygame.quit()
